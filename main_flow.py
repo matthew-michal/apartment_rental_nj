@@ -1,3 +1,10 @@
+# At the top of model_training.py
+import sys
+import os
+
+# Ensure the current directory is in Python path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import os
 import pandas as pd
 import boto3
