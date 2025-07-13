@@ -1,0 +1,21 @@
+name: my-project
+pull:
+  - prefect.deployments.steps.git_clone_project:
+      repository: https://github.com/your-org/your-repo.git
+
+deployments:
+  - name: daily-prediction-deployment
+    entrypoint: main_flow.py:daily_prediction_flow
+    schedule:
+      cron: "0 7 * * *"
+      timezone: "America/New_York"
+    work_pool:
+      name: default-work-pool
+      
+  - name: weekly-training-deployment
+    entrypoint: model_training.py:weekly_model_training_flow
+    schedule:
+      cron: "0 0 * * 0"
+      timezone: "America/New_York"
+    work_pool:
+      name: default-work-pool
