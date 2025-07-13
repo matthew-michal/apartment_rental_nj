@@ -1,8 +1,4 @@
-name: my-project
-pull:
-  - prefect.deployments.steps.git_clone_project:
-      repository: https://github.com/your-org/your-repo.git
-
+name: apartments-nj
 deployments:
   - name: daily-prediction-deployment
     entrypoint: main_flow.py:daily_prediction_flow
